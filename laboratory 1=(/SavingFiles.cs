@@ -22,10 +22,11 @@ namespace laboratory_1 {
             }
 
             if (userChoice == SAVING) {
-                string path = check.OpenFileInput();
-                FileStream file = new FileStream(path, FileMode.Create);
+                string path = check.OpenFileOutput();
+                FileStream file = new FileStream($"{path}.txt", FileMode.Open);
                 StreamWriter fileWriter = new StreamWriter(file);
                 fileWriter.Write(stringInput);
+                Console.WriteLine("Your input is successfully saved!");
                 fileWriter.Close();
             }
         }
@@ -48,11 +49,12 @@ namespace laboratory_1 {
             }
 
             if (userChoice == SAVING) {
-                string path = check.OpenFileInput();
+                string path = check.OpenFileOutput();
                 FileStream file = new FileStream(path, FileMode.Create);
                 StreamWriter fileWriter = new StreamWriter(file);
                 //fileWriter.Write(arrayOfNodes);
                 //fileWriter.Close();
+                Console.WriteLine("Your result is successfully saved!");
             }
         }
     }

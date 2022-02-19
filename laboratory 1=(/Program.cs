@@ -15,12 +15,11 @@ namespace laboratory_1 {
             int userChoice;
             Check inputChecks = new Check();
             ActionsWithTheTree filing = new ActionsWithTheTree(); 
-            filing.FillingTheTree();
-            Console.ReadKey();
 
             do {
                 
                 do {
+                    filing.FillingTheTree();
                     Console.WriteLine("Press 1 to finish");
                     Console.WriteLine("Press 2 to continue");
                     userChoice = inputChecks.GetInt();
@@ -30,9 +29,10 @@ namespace laboratory_1 {
                         Console.WriteLine();
                     }
 
-                } while (userChoice != (int)EndOfProgram.QUIT && userChoice != (int)EndOfProgram.CONTINUE);
+                } while (userChoice != (int)EndOfProgram.QUIT || userChoice != (int)EndOfProgram.CONTINUE);
 
             } while (userChoice != (int)EndOfProgram.QUIT);
+            Console.ReadKey();
         }
 
     }

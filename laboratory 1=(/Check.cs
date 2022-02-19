@@ -69,7 +69,7 @@ namespace laboratory_1 {
                 path = Console.ReadLine();
 
                 try {
-                    using (FileStream file = new FileStream(path, FileMode.OpenOrCreate)) {
+                    using (FileStream file = new FileStream($"{path}.txt", FileMode.OpenOrCreate)) {
                         isCorrectPath = true;
                     }
                 } catch (Exception) {
@@ -78,30 +78,31 @@ namespace laboratory_1 {
                 }
 
                 if (isCorrectPath == true) {
-                    string[] generalString = File.ReadAllLines(path);
+                    string[] generalString = File.ReadAllLines($"{path}.txt");
 
 
                     if (generalString.Length != FILE_HAS_DATA) {
                         Console.WriteLine("This file has some data. Do you want to overwrite the file?");
                         Console.WriteLine("Press 1 if you want to overwrite this file");
                         Console.WriteLine("Press 2 if you DON'T want to overwrite this file");
-                    }
 
-                    userChoice = GetInt();
 
-                    while (userChoice != OVERWRITE_PATH && userChoice != OVERWRITE_FILE) {
-                        Console.WriteLine("There is no such choice!");
-                        Console.WriteLine("Press 1 if you want to overwrite this file");
-                        Console.WriteLine("Press 2 if you DON'T want to overwrite this file");
                         userChoice = GetInt();
-                    }
 
-                    if (userChoice == OVERWRITE_PATH) {
-                        isCorrectPath = false;
-                    }
+                        while (userChoice != OVERWRITE_PATH && userChoice != OVERWRITE_FILE) {
+                            Console.WriteLine("There is no such choice!");
+                            Console.WriteLine("Press 1 if you want to overwrite this file");
+                            Console.WriteLine("Press 2 if you DON'T want to overwrite this file");
+                            userChoice = GetInt();
+                        }
 
-                    if (userChoice == OVERWRITE_FILE) {
-                        isCorrectPath = true;
+                        if (userChoice == OVERWRITE_PATH) {
+                            isCorrectPath = false;
+                        }
+
+                        if (userChoice == OVERWRITE_FILE) {
+                            isCorrectPath = true;
+                        }
                     }
                 }
 
@@ -113,14 +114,13 @@ namespace laboratory_1 {
         public string OpenFileInput() {
             string path;
             bool isCorrectPath;
-            const int FILE_HAS_DATA = 0;
 
             do {
                 Console.Write("Input the path to the file: ");
                 path = Console.ReadLine();
 
                 try {
-                    using (FileStream file = new FileStream(path, FileMode.OpenOrCreate)) {
+                    using (FileStream file = new FileStream($"{path}.txt", FileMode.Open)) {
                         isCorrectPath = true;
                     }
                 } catch (Exception) {
@@ -128,13 +128,6 @@ namespace laboratory_1 {
                     isCorrectPath = false;
                 }
 
-                string[] generalString = File.ReadAllLines(path);
-
-                if (generalString.Length == FILE_HAS_DATA) {
-                    Console.WriteLine("The file is empty. Try again.");
-                    isCorrectPath = false;
-                }
-                
             } while (isCorrectPath == false);
 
             return path;
