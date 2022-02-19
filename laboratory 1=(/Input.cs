@@ -52,7 +52,7 @@ namespace laboratory_1 {
         public string FileInput() {
             Check check = new Check();
             string path = check.OpenFileInput();
-            string stringInput = File.ReadAllText(path);
+            string stringInput = File.ReadAllText($"{path}.txt");
 
             for (int i = 0; i < stringInput.Length; i++) {
                 if (stringInput[i] == '\r') {

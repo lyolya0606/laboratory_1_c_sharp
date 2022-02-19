@@ -50,7 +50,7 @@ namespace laboratory_1 {
 
             if (userChoice == SAVING) {
                 string path = check.OpenFileOutput();
-                FileStream file = new FileStream(path, FileMode.Create);
+                FileStream file = new FileStream($"{path}.txt", FileMode.Create);
                 StreamWriter fileWriter = new StreamWriter(file);
                 //fileWriter.Write(arrayOfNodes);
                 //fileWriter.Close();

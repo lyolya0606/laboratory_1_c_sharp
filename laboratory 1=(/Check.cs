@@ -114,6 +114,7 @@ namespace laboratory_1 {
         public string OpenFileInput() {
             string path;
             bool isCorrectPath;
+            const int FILE_HAS_DATA = 0;
 
             do {
                 Console.Write("Input the path to the file: ");
@@ -126,6 +127,15 @@ namespace laboratory_1 {
                 } catch (Exception) {
                     Console.WriteLine("Opening error! Try again.");
                     isCorrectPath = false;
+                }
+
+                if (isCorrectPath == true) {
+                    string[] generalString = File.ReadAllLines($"{path}.txt");
+
+                    if (generalString.Length == FILE_HAS_DATA) {
+                        Console.WriteLine("This file is empty");
+                        isCorrectPath = false;
+                    }
                 }
 
             } while (isCorrectPath == false);
