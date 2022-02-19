@@ -1,16 +1,28 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace laboratory_1 {
-    class Kill {
-        public static int Main() {
-            
-            
+    class Node {
+        public int value;
+        public Node left;
+        public Node right;   
         
-            return 0;
+        public int NumberOfChildren() {
+            int numberOfChildren = 0;
+
+            if (left != null) {
+                numberOfChildren++;
+            }
+
+            if (right != null) {
+                numberOfChildren++;
+            }
+
+            return numberOfChildren;
+        }
+
+        public override string ToString() {
+            return value.ToString();
         }
     }
+
 }
