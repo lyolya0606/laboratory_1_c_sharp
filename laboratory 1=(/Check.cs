@@ -34,6 +34,7 @@ namespace laboratory_1 {
             char space = ' ';
             str = str.Trim();
 
+
             while (k != (str.Length + 1)) {
 
                 if (k >= str.Length) {
@@ -52,6 +53,7 @@ namespace laboratory_1 {
                     }
                 }
             }
+
             return str;
         }
 

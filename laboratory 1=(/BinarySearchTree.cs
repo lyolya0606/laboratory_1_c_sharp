@@ -2,7 +2,7 @@
 
 namespace laboratory_1 {
      class BinarySearchTree {
-
+        private Node _root;
         private const int COLUMN_WIDTH = 5;
         enum NumberOfChidren {
             NO_CHILDREN,
@@ -10,17 +10,15 @@ namespace laboratory_1 {
             TWO_CHILDREN
         }
 
-        public Node root;
-
         public BinarySearchTree() {
-            root = null;
+            _root = null;
         }
 
         public void InsertNode(int value) {
-            root = InsertNode(root, value);
+            _root = InsertNode(_root, value);
         }
 
-        public Node InsertNode(Node node, int value) {
+        private Node InsertNode(Node node, int value) {
 
             if (node == null) {
                 node = new Node();
@@ -34,7 +32,7 @@ namespace laboratory_1 {
         }
 
         public bool FindNode(int value) {
-            Node node = root;
+            Node node = _root;
 
             while (node != null) {
 
@@ -50,7 +48,7 @@ namespace laboratory_1 {
             return false;
         }
 
-        public Node MinNode(Node node) {
+        private Node MinNode(Node node) {
             while (node.left != null) {
                 node = node.left;
             }
@@ -58,10 +56,10 @@ namespace laboratory_1 {
         }
 
         public void DeletingNode(int value) {
-            DeletingNode(root, value);
+            DeletingNode(_root, value);
         }
 
-        public Node DeletingNode(Node node, int value) {
+        private Node DeletingNode(Node node, int value) {
 
             if (node == null) {
                 return node;
@@ -96,12 +94,12 @@ namespace laboratory_1 {
 
             if (node != null) {
                 Order(node.left);
-                Console.WriteLine($"node = {node.value}. left child = {node.left}, right child = {node.right}");
+                //Console.WriteLine($"node = {node.value}. left child = {node.left}, right child = {node.right}");
                 Order(node.right);                
             }
         }
 
-        public int GetHeight(Node node) {
+        private int GetHeight(Node node) {
             if (node == null) {
                 return 0;
             }
@@ -113,7 +111,7 @@ namespace laboratory_1 {
         }
 
         public void Print() {
-            Print(root, 0);
+            Print(_root, 0);
         }
 
         private void Print(Node node, int space) {

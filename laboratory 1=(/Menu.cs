@@ -1,15 +1,12 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace laboratory_1 {
     class Menu {
         public void Greeting() {
             Console.WriteLine("Laboratory work 1, variant 1");
-            Console.WriteLine("Задание.................................................");
-            Console.WriteLine("Student of group number 403, Bezdudnaya Olga. 2022 year.");
+            Console.WriteLine("Need to implement a binary search tree, demonstrate characteristic features,");
+            Console.WriteLine("implement the ability to add and remove elements, visualize a tree");
+            Console.WriteLine("Student of group number 403, Bezdudnaya Olga. 2022 year");
             Console.WriteLine();
         }
 

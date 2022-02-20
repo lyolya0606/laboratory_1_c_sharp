@@ -23,7 +23,7 @@ namespace laboratory_1 {
 
             if (userChoice == SAVING) {
                 string path = check.OpenFileOutput();
-                FileStream file = new FileStream($"{path}.txt", FileMode.Open);
+                FileStream file = new FileStream($"{path}.txt", FileMode.Create);
                 StreamWriter fileWriter = new StreamWriter(file);
                 fileWriter.Write(stringInput);
                 Console.WriteLine("Your input is successfully saved!");

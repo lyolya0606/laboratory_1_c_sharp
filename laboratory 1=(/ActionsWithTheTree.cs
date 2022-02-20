@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace laboratory_1 {
     class ActionsWithTheTree {
@@ -13,13 +14,14 @@ namespace laboratory_1 {
             NO_WORK
         };
 
+
         public void FillingTheTree() {
-            bool stop;
             Menu menu = new Menu();
             BinarySearchTree bst = new BinarySearchTree();
             Check check = new Check();
             Input input = new Input();
             SavingFiles savingFiles = new SavingFiles();
+            bool stop;          
             int userChoice;
             string[] stringInputArray;
             string stringInput = " ";
@@ -51,16 +53,31 @@ namespace laboratory_1 {
             } while (stop == false);
 
             stringInputArray = stringInput.Split(' ');
-            int[] intInputArray = new int[stringInputArray.Length];
 
+            List<int> intInputList = new List<int>();
             for (int i = 0; i < stringInputArray.Length; i++) {
-                intInputArray[i] = int.Parse(stringInputArray[i]);
+                intInputList.Add(int.Parse(stringInputArray[i]));
             }
 
-            foreach (int i in intInputArray) {
+            for (int i = 0; i < intInputList.Count; i++) {
+                for (int j = i + 1; j < intInputList.Count; j++) {
+                    if (intInputList[i] == intInputList[j]) {
+                        intInputList.RemoveAt(j);
+                    }
+                }
+            }
+
+            Console.Write("Node sizes: ");
+            for (int i = 0; i < intInputList.Count; i++) {
+                Console.Write($"{intInputList[i]} ");
+            }
+            Console.WriteLine();
+
+            foreach (int i in intInputList) {
                 bst.InsertNode(i);
             }
 
+            Console.WriteLine("Your tree: ");
             bst.Print();
 
             do {
@@ -74,13 +91,15 @@ namespace laboratory_1 {
                             userChoice = check.GetInt();
 
                             if (!bst.FindNode(userChoice)) {
-                                bst.InsertNode(check.GetInt());
+                                bst.InsertNode(userChoice);
+                                Console.WriteLine("Your tree: ");
                                 bst.Print();
+                                stop = true;
                             } else {
                                 Console.WriteLine("This node already exists");
+                                stop = false;
                             }
                             
-                            stop = true;
                             break;
                         case (int)WorkingWithTheTree.DELETE:
                             Console.Write("Enter the node you want to delete: ");
@@ -88,12 +107,14 @@ namespace laboratory_1 {
 
                             if (bst.FindNode(userChoice)) {
                                 bst.DeletingNode(userChoice);
+                                Console.WriteLine("Your tree: ");
                                 bst.Print();
+                                stop = true;
                             } else {
                                 Console.WriteLine("There is no such node");
+                                stop = false;
                             }
 
-                            stop = true;
                             break;
                         case (int)WorkingWithTheTree.NO_WORK:
                             stop = true;

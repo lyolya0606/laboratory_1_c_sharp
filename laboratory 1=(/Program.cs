@@ -2,7 +2,6 @@
 
 namespace laboratory_1 {
     class Program {
-
         enum EndOfProgram {
             QUIT = 1,
             CONTINUE
