@@ -1,12 +1,13 @@
 ﻿using System;
 using System.IO;
+using System.Collections.Generic;
 
 namespace laboratory_1 {
     class SavingFiles {
         private const int SAVING = 1;
         private const int NOT_SAVING = 2;
 
-        public void SavingInput(string stringInput) {
+        public void SavingInput(List<int> intInputList) {
             Check check = new Check();
 
             Console.WriteLine("Press 1 if you want to save your input in the file");
@@ -25,13 +26,16 @@ namespace laboratory_1 {
                 string path = check.OpenFileOutput();
                 FileStream file = new FileStream($"{path}.txt", FileMode.Create);
                 StreamWriter fileWriter = new StreamWriter(file);
-                fileWriter.Write(stringInput);
+
+                foreach (int i in intInputList) {
+                    fileWriter.Write($"{i} ");
+                }
                 Console.WriteLine("Your input is successfully saved!");
                 fileWriter.Close();
             }
         }
 
-        public void SavingTheResult() {
+        public void SavingTheResult(char[][] console) {
             Check check = new Check();
 
             Console.WriteLine("Press 1 if you want to save your result in the file");
@@ -50,8 +54,11 @@ namespace laboratory_1 {
                 string path = check.OpenFileOutput();
                 FileStream file = new FileStream($"{path}.txt", FileMode.Create);
                 StreamWriter fileWriter = new StreamWriter(file);
-                //fileWriter.Write(arrayOfNodes);
-                //fileWriter.Close();
+
+                foreach (char[] row in console) {
+                    fileWriter.WriteLine(row);
+                }
+                fileWriter.Close();
                 Console.WriteLine("Your result is successfully saved!");
             }
         }

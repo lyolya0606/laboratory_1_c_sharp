@@ -64,6 +64,7 @@ namespace laboratory_1 {
                 for (int j = i + 1; j < intInputList.Count; j++) {
                     if (intInputList[i] == intInputList[j]) {
                         intInputList.RemoveAt(j);
+                        j--;
                     }
                 }
             }
@@ -79,7 +80,8 @@ namespace laboratory_1 {
             }
 
             Console.WriteLine("Your tree: ");
-            bst.Print();
+            //bst.Print();
+            bst.VisualizeTree(bst);
 
             do {
                 do {
@@ -94,7 +96,8 @@ namespace laboratory_1 {
                             if (!bst.FindNode(userChoice)) {
                                 bst.InsertNode(userChoice);
                                 Console.WriteLine("Your tree: ");
-                                bst.Print();
+                                //bst.Print();
+                                bst.VisualizeTree(bst);
                                 stop = true;
                             } else {
                                 Console.WriteLine("This node already exists");
@@ -114,7 +117,8 @@ namespace laboratory_1 {
 
                                 } else {
                                     Console.WriteLine("Your tree: ");
-                                    bst.Print();
+                                    //bst.Print();
+                                    bst.VisualizeTree(bst);
                                 }
                                 stop = true;
                             } else {
@@ -135,9 +139,9 @@ namespace laboratory_1 {
                 } while (stop == false);
             } while (userChoice != (int)WorkingWithTheTree.NO_WORK);
 
-            savingFiles.SavingInput(stringInput);
-            savingFiles.SavingTheResult();
-
+            char[][] console = bst.VisualizeTreeForFile(bst);
+            savingFiles.SavingInput(intInputList);
+            savingFiles.SavingTheResult(console);
         }
     }
 }

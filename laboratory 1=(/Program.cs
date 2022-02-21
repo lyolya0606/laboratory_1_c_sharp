@@ -12,7 +12,7 @@ namespace laboratory_1 {
             menu.Greeting();
             int userChoice;
             Check inputChecks = new Check();
-            ActionsWithTheTree filing = new ActionsWithTheTree(); 
+            ActionsWithTheTree filing = new ActionsWithTheTree();
 
             do {
                 
@@ -27,10 +27,10 @@ namespace laboratory_1 {
                         Console.WriteLine();
                     }
 
-                } while (userChoice != (int)EndOfProgram.QUIT || userChoice != (int)EndOfProgram.CONTINUE);
+                } while (userChoice != (int)EndOfProgram.QUIT && userChoice != (int)EndOfProgram.CONTINUE);
 
             } while (userChoice != (int)EndOfProgram.QUIT);
-            Console.ReadKey();
+
         }
 
     }

@@ -4,8 +4,10 @@ using System.IO;
 namespace laboratory_1 {
     class Input {
         private const int EMPTY_STRING = 0;
-        private const int LEFT_BOARD = 0;
-        private const int RIGHT_BOARD = 100;
+        private const int LEFT_BOARD = 1;
+        private const int RIGHT_BOARD = 20;
+        private const int LEFT_BOARD_OF_SIZE = 5;
+        private const int RIGHT_BOARD_OF_SIZE = 8;
 
         public string KeyboardInput() {
             Check inputChecks = new Check();
@@ -28,11 +30,8 @@ namespace laboratory_1 {
         public string RandomInput() {
             string stringInput = "";
 
-            Check inputChecks = new Check();
-            Console.Write("Enter the number of nodes: ");
-            int numberOfNodes = inputChecks.GetInt();
-
             Random rand = new Random();
+            int numberOfNodes = rand.Next(LEFT_BOARD_OF_SIZE, RIGHT_BOARD_OF_SIZE);
             int[] nodeData = new int[numberOfNodes];
 
             for (int i = 0; i < numberOfNodes; i++) {
