@@ -4,6 +4,9 @@ using System.IO;
 
 namespace laboratory_1 {
     class Check {
+        private const int FILE_HAS_DATA = 0;
+        private const int OVERWRITE_FILE = 1;
+        private const int OVERWRITE_PATH = 2;
         public int GetInt() {
             int num;
 
@@ -57,10 +60,7 @@ namespace laboratory_1 {
             return str;
         }
 
-        public string OpenFileOutput() {
-            const int FILE_HAS_DATA = 0;
-            const int OVERWRITE_FILE = 1;
-            const int OVERWRITE_PATH = 2;    
+        public string OpenFileOutput() { 
             int userChoice;
             bool isCorrectPath;
             string path;
@@ -116,7 +116,6 @@ namespace laboratory_1 {
         public string OpenFileInput() {
             string path;
             bool isCorrectPath;
-            const int FILE_HAS_DATA = 0;
 
             do {
                 Console.Write("Input the path to the file: ");

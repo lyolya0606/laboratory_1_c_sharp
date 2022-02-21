@@ -3,11 +3,13 @@ using System.IO;
 
 namespace laboratory_1 {
     class Input {
+        private const int EMPTY_STRING = 0;
+        private const int LEFT_BOARD = 0;
+        private const int RIGHT_BOARD = 100;
 
         public string KeyboardInput() {
             Check inputChecks = new Check();
             bool emptyString = true;
-            const int EMPTY_STRING = 0;
             string stringInput;
 
             do {
@@ -24,8 +26,6 @@ namespace laboratory_1 {
         }
 
         public string RandomInput() {
-            const int LEFT_BOARD = 0;
-            const int RIGHT_BOARD = 100;
             string stringInput = "";
 
             Check inputChecks = new Check();
@@ -46,7 +46,6 @@ namespace laboratory_1 {
 
         public string FileInput() {
             Check check = new Check();
-            const int EMPTY_STRING = 0;
             string path = check.OpenFileInput();
             string stringInput = File.ReadAllText($"{path}.txt");
 

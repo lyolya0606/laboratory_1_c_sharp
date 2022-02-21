@@ -55,8 +55,9 @@ namespace laboratory_1 {
             stringInputArray = stringInput.Split(' ');
 
             List<int> intInputList = new List<int>();
-            for (int i = 0; i < stringInputArray.Length; i++) {
-                intInputList.Add(int.Parse(stringInputArray[i]));
+
+            foreach(string i in stringInputArray) {
+                intInputList.Add(int.Parse(i));
             }
 
             for (int i = 0; i < intInputList.Count; i++) {
@@ -68,8 +69,8 @@ namespace laboratory_1 {
             }
 
             Console.Write("Node sizes: ");
-            for (int i = 0; i < intInputList.Count; i++) {
-                Console.Write($"{intInputList[i]} ");
+            foreach (int i in intInputList) {
+                Console.Write($"{i} ");
             }
             Console.WriteLine();
 
@@ -106,9 +107,15 @@ namespace laboratory_1 {
                             userChoice = check.GetInt();
 
                             if (bst.FindNode(userChoice)) {
-                                bst.DeletingNode(userChoice);
-                                Console.WriteLine("Your tree: ");
-                                bst.Print();
+                                bst.DeleteNode(userChoice);
+
+                                if (bst.GetHeight() == 0) {
+                                    Console.WriteLine("The tree is empty");
+
+                                } else {
+                                    Console.WriteLine("Your tree: ");
+                                    bst.Print();
+                                }
                                 stop = true;
                             } else {
                                 Console.WriteLine("There is no such node");

@@ -3,7 +3,7 @@
 namespace laboratory_1 {
      class BinarySearchTree {
         private Node _root;
-        private const int COLUMN_WIDTH = 5;
+        private const int COLUMN_WIDTH = 8;
         enum NumberOfChidren {
             NO_CHILDREN,
             ONE_CHILD,
@@ -55,34 +55,44 @@ namespace laboratory_1 {
             return node;
         }
 
-        public void DeletingNode(int value) {
-            DeletingNode(_root, value);
+        public void DeleteNode(int value) {
+            DeleteNode(_root, value);
         }
 
-        private Node DeletingNode(Node node, int value) {
+        private Node DeleteNode(Node node, int value) {
 
             if (node == null) {
                 return node;
             }
 
             if (value < node.value) {
-                node.left = DeletingNode(node.left, value);
+                node.left = DeleteNode(node.left, value);
             } else if (value > node.value) {
-                node.right = DeletingNode(node.right, value);
+                node.right = DeleteNode(node.right, value);
             } else {
 
                 switch (node.NumberOfChildren()) {
                     case (int)NumberOfChidren.NO_CHILDREN:
-                        node = null;
+
+                        if (node == _root) {
+                            _root = null;
+                        } else {
+                            node = null;
+                        }
                         break;
                     case (int)NumberOfChidren.ONE_CHILD:
-                        Node childNode = node.left != null ? node.left : node.right;
-                        node = childNode;
+                        Node childNode = node.left ?? node.right;
+
+                        if (node == _root) {
+                            _root = childNode;
+                        } else {
+                            node = childNode;
+                        }
                         break;
                     case (int)NumberOfChidren.TWO_CHILDREN:
                         Node minNode = MinNode(node.right);
                         node.value = minNode.value;
-                        node.right = DeletingNode(node.right, minNode.value);
+                        node.right = DeleteNode(node.right, minNode.value);
                         break;
                 }
 
@@ -94,9 +104,12 @@ namespace laboratory_1 {
 
             if (node != null) {
                 Order(node.left);
-                //Console.WriteLine($"node = {node.value}. left child = {node.left}, right child = {node.right}");
                 Order(node.right);                
             }
+        }
+
+        public int GetHeight() {
+            return GetHeight(_root);
         }
 
         private int GetHeight(Node node) {

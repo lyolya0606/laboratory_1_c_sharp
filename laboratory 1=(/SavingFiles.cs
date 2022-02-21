@@ -3,11 +3,11 @@ using System.IO;
 
 namespace laboratory_1 {
     class SavingFiles {
+        private const int SAVING = 1;
+        private const int NOT_SAVING = 2;
 
         public void SavingInput(string stringInput) {
             Check check = new Check();
-            const int SAVING = 1;
-            const int NOT_SAVING = 2;
 
             Console.WriteLine("Press 1 if you want to save your input in the file");
             Console.WriteLine("Press 2 if you DON'T want to save your input in the file");
@@ -33,8 +33,6 @@ namespace laboratory_1 {
 
         public void SavingTheResult() {
             Check check = new Check();
-            const int SAVING = 1;
-            const int NOT_SAVING = 2;
 
             Console.WriteLine("Press 1 if you want to save your result in the file");
             Console.WriteLine("Press 2 if you DON'T want to save your result in the file");
