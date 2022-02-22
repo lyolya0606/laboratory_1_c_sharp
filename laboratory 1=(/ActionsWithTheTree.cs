@@ -80,8 +80,11 @@ namespace laboratory_1 {
             }
 
             Console.WriteLine("Your tree: ");
-            //bst.Print();
             bst.VisualizeTree(bst);
+            List<int> bb = bst.Order();
+            foreach (int i in bb) {
+                Console.WriteLine(i);
+            }
 
             do {
                 do {

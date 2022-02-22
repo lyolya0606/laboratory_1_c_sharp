@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace laboratory_1 {
      public class BinarySearchTree {
@@ -100,12 +101,21 @@ namespace laboratory_1 {
             return node;
         }
 
-        public void Order(Node node) {
+        public List<int> Order() {
+            List<int> valuesOfNode = new List<int>();
+            return Order(_root, valuesOfNode);
+        }
+
+
+        private List<int> Order(Node node, List<int> valuesOfNodes) {
 
             if (node != null) {
-                Order(node.Left);
-                Order(node.Right);                
+                Order(node.Left, valuesOfNodes);
+                valuesOfNodes.Add(node.Value);
+                Order(node.Right, valuesOfNodes);                
             }
+
+            return valuesOfNodes;
         }
 
         public int GetHeight() {
