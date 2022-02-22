@@ -22,11 +22,11 @@ namespace laboratory_1 {
 
             if (node == null) {
                 node = new Node();
-                node.value = value;
-            } else if (value < node.value) {
-                node.left = InsertNode(node.left, value);
+                node.Value = value;
+            } else if (value < node.Value) {
+                node.Left = InsertNode(node.Left, value);
             } else {
-                node.right = InsertNode(node.right, value);
+                node.Right = InsertNode(node.Right, value);
             }
             return node;
         }
@@ -36,10 +36,10 @@ namespace laboratory_1 {
 
             while (node != null) {
 
-                if (value < node.value) {
-                    node = node.left;
-                } else if (value > node.value) {
-                    node = node.right;
+                if (value < node.Value) {
+                    node = node.Left;
+                } else if (value > node.Value) {
+                    node = node.Right;
                 } else {
                     return true;
                 }
@@ -49,8 +49,8 @@ namespace laboratory_1 {
         }
 
         private Node MinNode(Node node) {
-            while (node.left != null) {
-                node = node.left;
+            while (node.Left != null) {
+                node = node.Left;
             }
             return node;
         }
@@ -65,10 +65,10 @@ namespace laboratory_1 {
                 return node;
             }
 
-            if (value < node.value) {
-                node.left = DeleteNode(node.left, value);
-            } else if (value > node.value) {
-                node.right = DeleteNode(node.right, value);
+            if (value < node.Value) {
+                node.Left = DeleteNode(node.Left, value);
+            } else if (value > node.Value) {
+                node.Right = DeleteNode(node.Right, value);
             } else {
 
                 switch (node.NumberOfChildren()) {
@@ -81,7 +81,7 @@ namespace laboratory_1 {
                         }
                         break;
                     case (int)NumberOfChidren.ONE_CHILD:
-                        Node childNode = node.left ?? node.right;
+                        Node childNode = node.Left ?? node.Right;
 
                         if (node == _root) {
                             _root = childNode;
@@ -90,9 +90,9 @@ namespace laboratory_1 {
                         }
                         break;
                     case (int)NumberOfChidren.TWO_CHILDREN:
-                        Node minNode = MinNode(node.right);
-                        node.value = minNode.value;
-                        node.right = DeleteNode(node.right, minNode.value);
+                        Node minNode = MinNode(node.Right);
+                        node.Value = minNode.Value;
+                        node.Right = DeleteNode(node.Right, minNode.Value);
                         break;
                 }
 
@@ -103,8 +103,8 @@ namespace laboratory_1 {
         public void Order(Node node) {
 
             if (node != null) {
-                Order(node.left);
-                Order(node.right);                
+                Order(node.Left);
+                Order(node.Right);                
             }
         }
 
@@ -117,8 +117,8 @@ namespace laboratory_1 {
                 return 0;
             }
 
-            int leftHeight = GetHeight(node.left);
-            int rightHeight = GetHeight(node.right);
+            int leftHeight = GetHeight(node.Left);
+            int rightHeight = GetHeight(node.Right);
 
             return 1 + Math.Max(leftHeight, rightHeight);
         }
@@ -128,7 +128,7 @@ namespace laboratory_1 {
         }
         
         private void DrawLeft(Node node, int row, int column, char[][] console, int columnDelta) {
-            if (node.left != null) {
+            if (node.Left != null) {
                 int startColumnIndex = COLUMN_WIDTH * (column - columnDelta) + 2;
                 int endColumnIndex = COLUMN_WIDTH * column + 2;
                 for (int i = startColumnIndex; i < endColumnIndex; i++) {
@@ -141,7 +141,7 @@ namespace laboratory_1 {
         }
 
         private void DrawRight(Node node, int row, int column, char[][] console, int columnDelta) {
-            if (node.right != null) {
+            if (node.Right != null) {
                 int startColumnIndex = COLUMN_WIDTH * column + 2;
                 int endColumnIndex = COLUMN_WIDTH * (column + columnDelta) + 2;
                 for (int i = startColumnIndex + 1; i < endColumnIndex; i++) {
@@ -155,15 +155,15 @@ namespace laboratory_1 {
 
         private void VisualizeNode(Node node, int row, int column, char[][] console, int width) {
             if (node != null) {
-                char[] chars = node.value.ToString().ToCharArray();
+                char[] chars = node.Value.ToString().ToCharArray();
                 int margin = (COLUMN_WIDTH - chars.Length) / 2;
                 for (int i = 0; i < chars.Length; i++) {
                     console[row][COLUMN_WIDTH * column + i + margin] = chars[i];
                 }
 
                 int columnDelta = (width + 1) / (int)Math.Pow(2, GetHeightNode(node) + 1);
-                VisualizeNode(node.left, row + 2, column - columnDelta, console, width);
-                VisualizeNode(node.right, row + 2, column + columnDelta, console, width);
+                VisualizeNode(node.Left, row + 2, column - columnDelta, console, width);
+                VisualizeNode(node.Right, row + 2, column + columnDelta, console, width);
                 DrawLeft(node, row, column, console, columnDelta);
                 DrawRight(node, row, column, console, columnDelta);
             }

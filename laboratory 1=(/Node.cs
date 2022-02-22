@@ -4,7 +4,7 @@
         private Node _left;
         private Node _right;
 
-        public int value {
+        public int Value {
             get {
                 return _value;
             }
@@ -14,7 +14,7 @@
             }
         }
 
-        public Node left {
+        public Node Left {
             get {
                 return _left;
             }
@@ -24,7 +24,7 @@
             }
         }
 
-        public Node right {
+        public Node Right {
             get {
                 return _right;
             }
@@ -37,11 +37,11 @@
         public int NumberOfChildren() {
             int numberOfChildren = 0;
 
-            if (left != null) {
+            if (Left != null) {
                 numberOfChildren++;
             }
 
-            if (right != null) {
+            if (Right != null) {
                 numberOfChildren++;
             }
 
@@ -49,7 +49,7 @@
         }
 
         public override string ToString() {
-            return value.ToString();
+            return Value.ToString();
         }
     }
 
