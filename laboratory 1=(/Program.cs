@@ -5,7 +5,7 @@ namespace laboratory_1 {
         enum EndOfProgram {
             QUIT = 1,
             CONTINUE
-        };    
+        };
 
         public static void Main(string[] args) { 
             Menu menu = new Menu();

@@ -1,7 +1,7 @@
 ﻿using System;
 
 namespace laboratory_1 {
-     class BinarySearchTree {
+     public class BinarySearchTree {
         private Node _root;
         private const int COLUMN_WIDTH = 5;
         enum NumberOfChidren {

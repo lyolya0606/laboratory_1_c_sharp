@@ -1,5 +1,5 @@
 ﻿namespace laboratory_1 {
-    class Node {
+    public class Node {
         private int _value;
         private Node _left;
         private Node _right;
