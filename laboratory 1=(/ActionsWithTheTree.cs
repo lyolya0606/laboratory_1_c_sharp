@@ -80,11 +80,7 @@ namespace laboratory_1 {
             }
 
             Console.WriteLine("Your tree: ");
-            bst.VisualizeTree(bst);
-            List<int> bb = bst.Order();
-            foreach (int i in bb) {
-                Console.WriteLine(i);
-            }
+            bst.VisualizeTree(bst);         
 
             do {
                 do {
@@ -99,7 +95,6 @@ namespace laboratory_1 {
                             if (!bst.FindNode(userChoice)) {
                                 bst.InsertNode(userChoice);
                                 Console.WriteLine("Your tree: ");
-                                //bst.Print();
                                 bst.VisualizeTree(bst);
                                 stop = true;
                             } else {
@@ -120,7 +115,6 @@ namespace laboratory_1 {
 
                                 } else {
                                     Console.WriteLine("Your tree: ");
-                                    //bst.Print();
                                     bst.VisualizeTree(bst);
                                 }
                                 stop = true;

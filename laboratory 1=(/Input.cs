@@ -5,7 +5,7 @@ namespace laboratory_1 {
     class Input {
         private const int EMPTY_STRING = 0;
         private const int LEFT_BOARD = 1;
-        private const int RIGHT_BOARD = 20;
+        private const int RIGHT_BOARD = 100;
         private const int LEFT_BOARD_OF_SIZE = 5;
         private const int RIGHT_BOARD_OF_SIZE = 7;
 

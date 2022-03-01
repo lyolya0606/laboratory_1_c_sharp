@@ -5,7 +5,7 @@ VisualStudioVersion = 16.0.31005.135
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "laboratory 1=(", "laboratory 1=(\laboratory 1=(.csproj", "{1CF04379-8923-486B-A024-378480DAEA85}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "laboratory 1=(Tests2", "laboratory 1=(Tests2\laboratory 1=(Tests2.csproj", "{E23DC3DA-46C3-40DB-8F33-A08454E27F13}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "laboratory 1=(Tests", "laboratory 1=(Tests2\laboratory 1=(Tests.csproj", "{E23DC3DA-46C3-40DB-8F33-A08454E27F13}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

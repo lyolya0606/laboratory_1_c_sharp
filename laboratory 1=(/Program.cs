@@ -12,12 +12,12 @@ namespace laboratory_1 {
             menu.Greeting();
             int userChoice;
             Check inputChecks = new Check();
-            ActionsWithTheTree filing = new ActionsWithTheTree();
+            ActionsWithTheTree filling = new ActionsWithTheTree();
 
             do {
                 
                 do {
-                    filing.FillingTheTree();
+                    filling.FillingTheTree();
                     Console.WriteLine("Press 1 to finish");
                     Console.WriteLine("Press 2 to continue");
                     userChoice = inputChecks.GetInt();
